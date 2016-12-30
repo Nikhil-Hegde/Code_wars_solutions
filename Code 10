@@ -1,0 +1,40 @@
+# Code_wars_solutions
+
+'''Tortoise racing'''
+
+"""Two tortoises named A and B must run a race. A starts with an average speed of 720 feet per hour. Young B knows she runs faster than A and furthermore has not finished her cabbage.
+
+When she starts, at last, she can see that A has a 70 feet lead but B speed is 850 feet per hour. How long will it take B to catch A?
+
+More generally: given two speeds v1 (A speed, integer > 0) and v2 (B speed, integer > 0) and a lead g (integer > 0) how long will it take B to catch A?"""
+
+''' Alternative:'''
+
+from datetime import datetime, timedelta
+
+def race(v1, v2, g):
+    if v1 >= v2:
+        return None
+    else:
+        sec = timedelta(seconds=int((g*3600/(v2-v1))))
+        d = datetime(1,1,1) + sec
+        
+        return [d.hour, d.minute, d.second]
+
+'''Solution:'''
+
+def race(v1, v2, g):
+    if v1 > v2:
+        return None
+    result = []
+    tt = 0
+    for i in range(3):
+        temp = (60**i) * g / (v2 - v1) //1
+        result.append(temp - 60 * tt)
+        tt = temp
+    return result
+
+for f in data_files:
+    d = pd.read_csv("schools/{0}".format(f))
+    key_name = f.replace(".csv", "")
+    data[key_name] = d
