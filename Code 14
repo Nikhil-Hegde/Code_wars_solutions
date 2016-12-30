@@ -1,0 +1,19 @@
+# Code_wars_solutions
+
+"""Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contains any char."""
+'''Example:'''
+'''XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+'''
+'''Solution:'''
+def xo(s):
+    return len([o for o in s.lower() if o=="o"]) == len([x for x in s.lower() if x=="x"])
+
+"""Aletrnative:"""
+
+def xo(s):
+    s = s.lower()
+    return s.count('x') == s.count('o')
