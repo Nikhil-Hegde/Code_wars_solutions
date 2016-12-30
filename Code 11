@@ -1,0 +1,17 @@
+# Code_wars_solutions
+'''Convert number to reversed array of digits'''
+
+'''Example:'''
+'''348597 => [7,9,5,8,4,3]'''
+
+'''Solution:'''
+
+def digitize(n):
+    array = map(int, str(n))
+    array.reverse()
+    return array
+
+''' Alternate:'''
+
+def digitize(n):
+    return map(int, reversed(str(n)))
